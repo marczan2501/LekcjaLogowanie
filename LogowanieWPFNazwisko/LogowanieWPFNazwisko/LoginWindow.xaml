@@ -1,0 +1,39 @@
+﻿<Window x:Class="LogowanieWPFNazwisko.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogowanieWPFNazwisko"
+        mc:Ignorable="d"
+        Height="320" Width="300" 
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" 
+        FontSize="14" 
+        Background="#04c582"
+        Loaded="Window_Loaded">
+    <Border Background="#2e3137" CornerRadius="10" Margin="15">
+        <StackPanel Margin="15">
+            <Label Content="Zaloguj" Foreground="White" FontSize="25" 
+                   HorizontalAlignment="Center"/>
+            <Separator/>
+            <Label Content="Nazwa użytkownika" Foreground="White"/>
+            <TextBox Name="txtUserName" Background="#545d6a"
+                     Foreground="White" FontSize="18"/>
+
+            <Label Content="Hasło" Foreground="White"/>
+            <PasswordBox Name="txtPassword" 
+                             Background="#545d6a" 
+                             Foreground="White" 
+                             FontSize="18"/>
+            <Button Name="btnSubmit" 
+                    Content="Wyślij" 
+                    Background="#545d6a" 
+                    Foreground="White" 
+                    FontSize="18"
+                    Margin="60 40" 
+                    Click="btnSubmit_Click"
+                     />
+        </StackPanel>
+    </Border>
+</Window>
