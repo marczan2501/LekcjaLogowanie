@@ -6,7 +6,6 @@ namespace LogowanieWPFNazwisko
     public class SqlCon
     {
         SQLiteConnection m_dbConnection;
-        Szyfrowanie szyfrowanie = new Szyfrowanie();
         public void IfDatabaseExist(string baza, string tabela)
         {
             if (File.Exists(baza))
@@ -81,10 +80,7 @@ namespace LogowanieWPFNazwisko
                 int id = CheckLast(tabela);
                 id++;
 
-                using (System.Security.Cryptography.MD5 md5Hash = System.Security.Cryptography.MD5.Create())
-                {
-                    password = szyfrowanie.GetMd5Hash(md5Hash, password);
-                }
+               
                 string sql = string.Format("INSERT INTO {3}(Id, User, Password ) VALUES({0},'{1}','{2}')",
                     id, user, password, tabela);
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
@@ -101,10 +97,6 @@ namespace LogowanieWPFNazwisko
         {
             if (CheckUserName(tabela, user))
             {
-                using (System.Security.Cryptography.MD5 md5Hash = System.Security.Cryptography.MD5.Create())
-                {
-                    password = szyfrowanie.GetMd5Hash(md5Hash, password);
-                }
                 string sql = string.Format("Select * From {0}", tabela);
                 SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
                 command.ExecuteNonQuery();

@@ -75,7 +75,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="SqlCon.cs" />
-    <Compile Include="Szyfrowanie.cs" />
     <Compile Include="Zmienne.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
